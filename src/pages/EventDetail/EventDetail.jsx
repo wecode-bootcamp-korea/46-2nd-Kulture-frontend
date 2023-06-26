@@ -199,26 +199,6 @@ const EventDetail = () => {
           setIsDirect={setIsDirect}
         />
       )}
-      {/* {directOrderOpen && (
-        <DirectOrderModal
-          detail={detail}
-          orderOpen={orderOpen}
-          setOrderOpen={setOrderOpen}
-          nickname={nickname}
-          email={email}
-          coast={coast}
-          totalToken={totalToken}
-          setTotalToken={setTotalToken}
-          ticket={ticket}
-          setTicket={setTicket}
-          setModalOpen={setModalOpen}
-          setCoast={setCoast}
-          directOrderOpen={directOrderOpen}
-          setDirectOrderOpen={setDirectOrderOpen}
-          directBidOpen={directBidOpen}
-          setDirectBidOpen={setDirectBidOpen}
-        />
-      )} */}
       <S.DetailWrap>
         {/* 좌측 이벤트 이미지 */}
         <S.DetailLeft>
