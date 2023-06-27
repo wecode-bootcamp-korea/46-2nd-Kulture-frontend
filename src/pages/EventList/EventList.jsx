@@ -169,7 +169,7 @@ const EventList = () => {
             <span>0</span>
             <span>300</span>
           </S.TokenQuantity>
-          <GoToTop />
+          <GoToTop type="list" />
         </S.ContainerLeft>
         <S.ContainerRight>
           <S.TitleBox>

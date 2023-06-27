@@ -16,7 +16,7 @@ export const S = {
 
   ContainerLeft: styled.div`
     position: sticky;
-    top: 170px;
+    top: 90px;
     width: 400px;
     height: 900px;
     margin-right: 64px;

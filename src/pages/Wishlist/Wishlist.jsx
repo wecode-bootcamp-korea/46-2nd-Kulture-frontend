@@ -8,6 +8,8 @@ import fetchLiked from '../../hooks/fetchLiked.js';
 import { S } from './Wishlist';
 import 'react-calendar/dist/Calendar.css';
 import DeleteModal from './components/DeleteModal.jsx';
+import GoToTop from '../../components/GoToTop/GoToTop.jsx';
+import { type } from '@testing-library/user-event/dist/type/index.js';
 
 const Wishlist = event_id => {
   const TOKEN = localStorage.getItem('accessToken');
@@ -82,15 +84,15 @@ const Wishlist = event_id => {
     });
   };
 
-  const handleMoreEvent = () => {
-    searchParams.set('limit', Number(limit) + 6);
-    setSearchParams(searchParams);
-  };
-
   if (!limit) {
     limit = 6;
     setSearchParams({ limit });
   }
+
+  const handleMoreEvent = () => {
+    searchParams.set('limit', Number(limit) + 6);
+    setSearchParams(searchParams);
+  };
 
   useEffect(() => {
     const url = `${APIS.wishlist}`;
@@ -169,6 +171,8 @@ const Wishlist = event_id => {
           />
         )}
       </S.Container>
+
+      <GoToTop type="wishlist" />
     </div>
   );
 };
