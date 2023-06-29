@@ -27,6 +27,15 @@ const EventDetail = () => {
   const [reviewList, setReviewList] = useState([]);
   const [isDirect, setIsDirect] = useState(false);
   const [offset, setOffset] = useState(0);
+  //Liked
+  const [wishlist, setWishlist] = useState([]);
+  const [checkLiked, setCheckLiked] = useState([]);
+
+  const setId = (data, event_id) => {
+    setCheckLiked(
+      fetchLiked(TOKEN, APIS.wishlist, data, event_id, setWishlist, getWishList)
+    );
+  };
 
   const LIMIT = 100;
   const nextOffset = LIMIT + offset;
@@ -85,17 +94,6 @@ const EventDetail = () => {
         });
     }
   }, []);
-
-  //Liked
-  const [wishlist, setWishlist] = useState([]);
-  const [checkLiked, setCheckLiked] = useState([]);
-
-  const setId = (data, event_id) => {
-    setCheckLiked(
-      fetchLiked(TOKEN, APIS.wishlist, data, event_id, setWishlist, getWishList)
-    );
-  };
-
   const wishlistId = wishlist.map(({ event_id }) => event_id);
 
   const getWishList = () => {
@@ -323,7 +321,16 @@ const EventDetail = () => {
         <S.WrapperCard>
           {searched.length &&
             searched.slice(0, 6).map(data => {
-              return <EventCard key={data.event_id} data={data} type="list" />;
+              return (
+                <EventCard
+                  key={data.event_id}
+                  data={data}
+                  setId={setId}
+                  wishlistId={wishlistId}
+                  wishlist={wishlist}
+                  type="home"
+                />
+              );
             })}
         </S.WrapperCard>
       </S.RecommnedWrap>
@@ -340,7 +347,6 @@ const EventDetail = () => {
                   data={data}
                   text={data.content}
                   type="list"
-                  setId={setId}
                   wishlistId={wishlistId}
                   wishlist={wishlist}
                 />
