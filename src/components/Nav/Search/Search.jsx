@@ -8,7 +8,7 @@ const Search = ({ IsSearchOpen, setIsSearchOpen }) => {
   const [userInput, setUserInput] = useState('');
   const [offset, setOffset] = useState(0);
 
-  const LIMIT = 50;
+  const LIMIT = 100;
   const nextOffset = LIMIT + offset;
 
   const getValue = e => {
@@ -16,7 +16,7 @@ const Search = ({ IsSearchOpen, setIsSearchOpen }) => {
   };
 
   useEffect(() => {
-    fetch(`${APIS.events}?limit=${LIMIT}&offset=${nextOffset - 50}`)
+    fetch(`${APIS.events}?limit=${LIMIT}&offset=${nextOffset - 100}`)
       .then(res => res.json())
       .then(data => {
         setList(data.data);

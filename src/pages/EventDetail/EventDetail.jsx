@@ -321,11 +321,20 @@ const EventDetail = () => {
         <S.WrapperCard>
           {searched.length &&
             searched.slice(0, 6).map(data => {
-              return <EventCard key={data.event_id} data={data} type="list" />;
+              return (
+                <EventCard
+                  key={data.event_id}
+                  data={data}
+                  setId={setId}
+                  wishlistId={wishlistId}
+                  wishlist={wishlist}
+                  type="home"
+                />
+              );
             })}
         </S.WrapperCard>
       </S.RecommnedWrap>
-      {reviewList.length && (
+      {reviewList.length > 0 && (
         <>
           <S.RecommnedTitle>리뷰</S.RecommnedTitle>
           <S.ReviewWrapper>
