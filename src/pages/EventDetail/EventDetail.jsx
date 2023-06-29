@@ -64,8 +64,6 @@ const EventDetail = () => {
       });
   }, []);
 
-  console.log(reviewList);
-
   //유저 정보 GET
   useEffect(() => {
     if (TOKEN) {

@@ -46,6 +46,7 @@ const Reviews = () => {
         setReviewList(prevReviewList =>
           prevReviewList.filter(review => review.id !== id)
         );
+        alert('리뷰가 삭제되었습니다!');
       }
     });
   };
