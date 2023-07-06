@@ -43,6 +43,7 @@ const ReviewModal = ({ setIsReviewModalOpen, eventId, name }) => {
           if (data.message === 'Create_Completed') {
             navigate('/reviews');
             alert('리뷰가 등록되었습니다!');
+            window.location.reload();
             return;
           }
         });

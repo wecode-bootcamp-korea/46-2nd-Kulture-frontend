@@ -63,7 +63,7 @@ const Home = () => {
                 src={src}
                 alt={title}
                 onClick={() => {
-                  navigate(`/events?&categoryId=${id}`);
+                  navigate(`/events?&limit=6&categoryId=${id}`);
                 }}
               >
                 <S.CategoryText key={id}>{title}</S.CategoryText>
